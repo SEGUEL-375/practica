@@ -1,0 +1,2 @@
+Para ejecutar el archivo practica.kt.Debemos crear un archivo jar. para eso siga estos pasos: kotlinc practica.kt -include-runtime -d practica.jar
+Para ejecutar el archivo creado practica.jar este es el comando: java -jar practica.jar 
