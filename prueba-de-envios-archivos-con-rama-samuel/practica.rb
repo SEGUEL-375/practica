@@ -1,7 +1,7 @@
-def calcular_raiz_cuadrada(numero)
-  raiz_cuadrada = Math.sqrt(numero)
-  puts "La raíz cuadrada de #{numero} es #{raiz_cuadrada}"
-end
 
-# Ejemplo de uso
-calcular_raiz_cuadrada(9)
+def calcular_division (numero_dividir)
+division = numero_dividir / numero_dividir
+puts "La division de #{numero_dividir} y #{numero_dividir} es #{division}"
+end
+calcular_division(5)
+
