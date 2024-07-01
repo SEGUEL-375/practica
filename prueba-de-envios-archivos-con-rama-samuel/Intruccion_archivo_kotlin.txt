@@ -1,0 +1,1 @@
+Para abrir archivo el archivo practica.kt con estos comandos: java -jar practica.jar 
