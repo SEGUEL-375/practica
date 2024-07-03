@@ -4,14 +4,12 @@ function practica($numero) {
     if($numero < 2) {
         return false;
     }
-
     // Comprobar divisibilidad desde 2 hasta la raíz cuadrada del número
     for($i = 2; $i <= sqrt($numero); $i++) {
         if($numero % $i == 0) {
             return false; // Si encontramos un divisor, el número no es primo
         }
     }
-
     return true; // Si no encontramos divisores, el número es primo
 }
 
