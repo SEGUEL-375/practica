@@ -1,12 +1,15 @@
 nombres = []
+profresiones = []
 
 def menu_principal
   puts "---- Menú Principal ----"
   puts "1) Agregar Nombre"
-  puts "2) Eliminar Nombre"
-  puts "3) Editar Nombre"
-  puts "4) Lista de Nombres"
-  puts "5) Salir "
+  puts "2) Agregar profesion"
+  puts "3) Eliminar Nombre"
+  puts "4) Editar Nombre"
+  puts "5) Lista de Nombres"
+  puts "6) Lista de Profesiones"
+  puts "7) Salir"
   puts "------------------------"
   print "Selecciona una opción: "
 
@@ -18,6 +21,14 @@ def agregar_nombre(nombres)
   nombres << nombre
   puts "#{nombre} ha sido agregado."
 end
+
+def agregar_profesion(profresiones)
+  print "Ingrese su profesion: "
+  profesion = gets.chomp
+  profresiones << profesion
+  puts " su profesion de #{profesion} ha sigo agregado."
+end
+
 
 def eliminar_nombre(nombres)
   print "Ingresa el nombre a eliminar: "
@@ -42,6 +53,16 @@ def editar_nombre(nombres)
   end
 end
 
+def lista_profesional(profresiones)
+  if profresiones.empty?
+    puts "La lista esta vacia."
+  else 
+    puts "Lista de profesiones:"  
+    profresiones.each_with_index do |profesion, index|
+     puts "#{index + 1}. #{profesion}"
+    end   
+  end
+
 def listado(nombres)
   if nombres.empty?
     puts "La lista está vacía."
@@ -51,6 +72,10 @@ def listado(nombres)
       puts "#{index + 1}. #{nombre}"
     end
   end
+
+
+
+end
 end
 
 
@@ -61,13 +86,18 @@ loop do
   case opcion
   when 1
     agregar_nombre(nombres)
+  
   when 2
-    eliminar_nombre(nombres)
+    agregar_profesion(profresiones)
   when 3
-    editar_nombre(nombres)
+    eliminar_nombre(nombres)
   when 4
-    listado(nombres)
+    editar_nombre(nombres)
   when 5
+    listado(nombres)
+  when 6
+    lista_profesional(profresiones)
+  when 7
     puts "Saliendo..."
     break
   else
