@@ -1,15 +1,17 @@
 nombres = []
-profresiones = []
+profesiones = []
 
 def menu_principal
   puts "---- Menú Principal ----"
   puts "1) Agregar Nombre"
   puts "2) Agregar profesion"
   puts "3) Eliminar Nombre"
-  puts "4) Editar Nombre"
-  puts "5) Lista de Nombres"
-  puts "6) Lista de Profesiones"
-  puts "7) Salir"
+  puts "4) Eliminar Profesion"
+  puts "5) Editar Nombre"
+  puts "6) Editar Profesion"
+  puts "7) Lista de Nombres"
+  puts "8) Lista de Profesiones"
+  puts "9) Salir"
   puts "------------------------"
   print "Selecciona una opción: "
 
@@ -22,10 +24,10 @@ def agregar_nombre(nombres)
   puts "#{nombre} ha sido agregado."
 end
 
-def agregar_profesion(profresiones)
+def agregar_profesion(profesiones)
   print "Ingrese su profesion: "
   profesion = gets.chomp
-  profresiones << profesion
+  profesiones << profesion
   puts " su profesion de #{profesion} ha sigo agregado."
 end
 
@@ -40,6 +42,17 @@ def eliminar_nombre(nombres)
   end
 end
 
+def eliminar_profesion(profesiones)
+  print "Ingrese la profesion a eliminar:"
+  profesion = gets.chomp
+  if profesiones.delete(profesion)
+    puts "#{profesion} ha sido eliminado con exito"
+  
+  else
+    puts "#{profesion} no se encuentra en la lista."
+  end   
+ end
+
 def editar_nombre(nombres)
   print "Ingresa el nombre a editar: "
   nombre = gets.chomp
@@ -53,12 +66,27 @@ def editar_nombre(nombres)
   end
 end
 
-def lista_profesional(profresiones)
-  if profresiones.empty?
+def editar_profesion(profesiones)
+  print "Ingrese el nombre de la profesion a editar:"
+  profesion = gets.chomp
+  if profesion.include?(profesion)
+    print "Ingrese el nuevo nombre de la profesion:"
+    nueva_profesion = gets.chomp
+    profesiones[profesiones.index(profesion)] = nueva_profesion
+    puts "#{profesion} ha sido cambiada a #{nueva_profesion}"
+  else
+    puts "#{profesion} no se encuentra en la lista."
+  end
+end
+
+
+
+def lista_profesional(profesiones)
+  if profesiones.empty?
     puts "La lista esta vacia."
   else 
     puts "Lista de profesiones:"  
-    profresiones.each_with_index do |profesion, index|
+    profesiones.each_with_index do |profesion, index|
      puts "#{index + 1}. #{profesion}"
     end   
   end
@@ -86,18 +114,22 @@ loop do
   case opcion
   when 1
     agregar_nombre(nombres)
-  
   when 2
-    agregar_profesion(profresiones)
+    agregar_profesion(profesiones)
   when 3
     eliminar_nombre(nombres)
   when 4
-    editar_nombre(nombres)
+    eliminar_profesion(profesiones)
   when 5
-    listado(nombres)
+    editar_nombre(nombres)
   when 6
-    lista_profesional(profresiones)
+    editar_profesion(profesiones)
   when 7
+    listado(nombres)
+  when 8
+    lista_profesional(profesiones)
+  when 9
+  
     puts "Saliendo..."
     break
   else
