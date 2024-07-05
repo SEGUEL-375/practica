@@ -1,17 +1,20 @@
 nombres = []
 profesiones = []
+lista_dni = []
 
 def menu_principal
   puts "---- Menú Principal ----"
-  puts "1) Agregar Nombre"
-  puts "2) Agregar profesion"
-  puts "3) Eliminar Nombre"
-  puts "4) Eliminar Profesion"
-  puts "5) Editar Nombre"
-  puts "6) Editar Profesion"
-  puts "7) Lista de Nombres"
-  puts "8) Lista de Profesiones"
-  puts "9) Salir"
+  puts  "1) Agregar Nombre"
+  puts  "2) Agregar D.N.I"
+  puts  "3) Agregar profesion"
+  puts  "4) Eliminar Nombre"
+  puts  "5) Eliminar Profesion"
+  puts  "6) Editar Nombre"
+  puts  "7) Editar Profesion"
+  puts  "8) Lista de Nombres"
+  puts  "9) Lista de Profesiones"
+  puts "10) Lista de D.N.I"
+  puts "11) Salir"
   puts "------------------------"
   print "Selecciona una opción: "
 
@@ -28,8 +31,16 @@ def agregar_profesion(profesiones)
   print "Ingrese su profesion: "
   profesion = gets.chomp
   profesiones << profesion
-  puts " su profesion de #{profesion} ha sigo agregado."
+  puts "Su profesion de #{profesion} ha sigo agregado."
 end
+
+def agregar_Dni(lista_dni)
+  print "Ingrese su D.N.I: "
+  dni = gets.chomp
+  lista_dni << dni
+  puts "Su D.N.I de #{dni} ha sido agregado con exito."
+end
+  
 
 
 def eliminar_nombre(nombres)
@@ -80,7 +91,6 @@ def editar_profesion(profesiones)
 end
 
 
-
 def lista_profesional(profesiones)
   if profesiones.empty?
     puts "La lista esta vacia."
@@ -89,6 +99,18 @@ def lista_profesional(profesiones)
     profesiones.each_with_index do |profesion, index|
      puts "#{index + 1}. #{profesion}"
     end   
+  end
+end
+
+
+ def listado_dni(lista_dni)
+  if lista_dni.empty?
+    puts "La lista esta vacia"
+  else 
+    puts "Lista de D.N.I:"
+    lista_dni.each_with_index do |dni,index|
+      puts "#{index +1}. #{dni}"
+    end
   end
 
 def listado(nombres)
@@ -100,9 +122,6 @@ def listado(nombres)
       puts "#{index + 1}. #{nombre}"
     end
   end
-
-
-
 end
 end
 
@@ -115,20 +134,24 @@ loop do
   when 1
     agregar_nombre(nombres)
   when 2
-    agregar_profesion(profesiones)
+    agregar_Dni(lista_dni)
   when 3
-    eliminar_nombre(nombres)
+    agregar_profesion(profesiones)
   when 4
-    eliminar_profesion(profesiones)
+    eliminar_nombre(nombres)
   when 5
-    editar_nombre(nombres)
+    eliminar_profesion(profesiones)
   when 6
-    editar_profesion(profesiones)
+    editar_nombre(nombres)
   when 7
-    listado(nombres)
+    editar_profesion(profesiones)
   when 8
-    lista_profesional(profesiones)
+    listado(nombres)
   when 9
+    lista_profesional(profesiones)
+  when 10
+    listado_dni(lista_dni)
+  when 11
   
     puts "Saliendo..."
     break
