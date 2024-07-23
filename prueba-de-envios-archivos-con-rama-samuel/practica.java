@@ -25,5 +25,8 @@ public class practica {
         }
 
         return true; // Si no encontramos divisores, el número es primo
+    
+    
+
     }
 }

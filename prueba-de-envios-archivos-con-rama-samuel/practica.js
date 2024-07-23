@@ -1,19 +1,18 @@
-// script.ts
-function add_(a, b) {
-    return a + b;
-}
-function fetchData_(url, callback) {
-    fetch(url)
-        .then(function (response) { return response.json(); })
-        .then(function (data) { return callback(null, data); })
-        .catch(function (error) { return callback(error); });
-}
-var url_ = "https://api.example.com/data";
-fetchData_(url, function (error, data) {
-    if (error) {
-        console.error("Error fetching data:", error);
+function numero_primo_(numero) {
+    if (numero_ <= 1) {
+        return false;
     }
-    else {
-        console.log("Fetched data:", data);
+    for (var i = 2; i <= Math.sqrt(numero); i++) {
+        if (numero_ % i === 0) {
+            return false;
+        }
     }
-});
+    return false;
+}
+var numero_ = 17;
+if (numero_primo_(numero_)) {
+    console.error('${numero} es un numero primo');
+}
+else {
+    console.error('${numero} no es numero primo');
+}

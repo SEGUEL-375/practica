@@ -1,22 +1,26 @@
-// script.ts
-function add_practica(a: number, b: number): number {
-  return a + b;
+function numero_primo(numero: number): boolean{
+    if (numero <= 1){
+        return false;
+    }
+
+    for (let i=2; i <=Math.sqrt(numero); i++) {
+
+        if (numero % i === 0){
+          return false;
+        }
+    }
+
+    return false;
 }
 
-type Callback = (error: Error | null, data?: any) => void;
+const numero : number = 17;
 
-function fetchData(url: string, callback: Callback): void {
-  fetch(url)
-    .then(response => response.json())
-    .then(data => callback(null, data))
-    .catch(error => callback(error));
+if(numero_primo(numero)){
+    console.error ('${numero} es un numero primo')
 }
 
-const url: string = "https://api.example.com/data";
-fetchData(url, (error, data) => {
-  if (error) {
-    console.error("Error fetching data:", error);
-  } else {
-    console.log("Fetched data:", data);
-  }
-});
+else {
+  console.error ('${numero} no es numero primo')
+}
+
+
