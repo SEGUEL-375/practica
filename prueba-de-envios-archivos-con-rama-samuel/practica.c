@@ -15,6 +15,7 @@ int main()
 {
     int numero;
 
+
     // Solicitar al usuario que ingrese un número
     printf("Ingrese un número para calcular su factorial: ");
     scanf("%d", &numero);

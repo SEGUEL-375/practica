@@ -7,6 +7,7 @@ function numero_primo_(numero) {
             return false;
         }
     }
+
     return false;
 }
 var numero_ = 17;
