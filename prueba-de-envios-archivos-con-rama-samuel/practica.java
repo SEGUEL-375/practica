@@ -22,11 +22,10 @@ public class practica {
             if (numero % i == 0) {
                 return false; // Si encontramos un divisor, el número no es primo
             }
-        }
+ 
+         }
 
         return true; // Si no encontramos divisores, el número es primo
-    
-    
 
     }
 }
